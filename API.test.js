@@ -6,7 +6,7 @@ describe('Testes para os Endpoints da API', () => {
 
   // Teste para o endpoint POST /chillies
   describe('POST /chillies', () => {
-    it('Teste: adicionar uma nova pimenta', async () => {
+    it('Teste 1: adicionar uma nova pimenta', async () => {
       const newChilli = { name: 'Habanero', scoville: 350000 };
 
       const res = await request(app).post('/chillies').send(newChilli);
@@ -21,7 +21,7 @@ describe('Testes para os Endpoints da API', () => {
 
   // Teste para o endpoint GET /chillies
   describe('GET /chillies', () => {
-    it('Teste: retornar todas as pimentas', async () => {
+    it('Teste 2: retornar todas as pimentas', async () => {
       const res = await request(app).get('/chillies');
       expect(res.statusCode).toEqual(200);
       expect(Array.isArray(res.body)).toBeTruthy();
@@ -31,14 +31,14 @@ describe('Testes para os Endpoints da API', () => {
 
   // Teste para o endpoint GET /chillies/:id
   describe('GET /chillies/:id', () => {
-    it('Teste: retornar uma pimenta específica por ID', async () => {
+    it('Teste 3: retornar uma pimenta específica por ID', async () => {
       const res = await request(app).get(`/chillies/${chilliId}`);
       expect(res.statusCode).toEqual(200);
       expect(res.body).toHaveProperty('id');
       expect(res.body.name).toBeDefined();
     });
 
-    it('Teste: retornar um status 404 se a pimenta não for encontrada', async () => {
+    it('Teste 4: retornar um status 404 se a pimenta não for encontrada', async () => {
       const res = await request(app).get('/chillies/999');
       expect(res.statusCode).toEqual(404);
     });
@@ -46,7 +46,7 @@ describe('Testes para os Endpoints da API', () => {
 
   // Teste para o endpoint PUT /chillies/:id
   describe('PUT /chillies/:id', () => {
-    it('Teste: atualizar uma pimenta existente por ID', async () => {
+    it('Teste 5: atualizar uma pimenta existente por ID', async () => {
       const updatedChilli = { name: 'Ghost Pepper', scoville: 1000000 };
 
       const res = await request(app).put(`/chillies/${chilliId}`).send(updatedChilli);
@@ -56,7 +56,7 @@ describe('Testes para os Endpoints da API', () => {
       expect(res.body.scoville).toEqual(updatedChilli.scoville);
     });
 
-    it('Teste: retornar um status 400 se a pimenta não for encontrada', async () => {
+    it('Teste 6: retornar um status 400 se a pimenta não for encontrada', async () => {
       const res = await request(app).put('/chillies/999').send({ name: 'Invalid Chilli' });
       expect(res.statusCode).toEqual(400);
     });
@@ -64,12 +64,12 @@ describe('Testes para os Endpoints da API', () => {
 
   // Teste para o endpoint DELETE /chillies/:id
   describe('DELETE /chillies/:id', () => {
-    it('Teste: excluir uma pimenta por ID', async () => {
+    it('Teste 7: excluir uma pimenta por ID', async () => {
       const res = await request(app).delete(`/chillies/${chilliId}`);
       expect(res.statusCode).toEqual(200);
     });
 
-    it('Teste: retornar um status 400 se a pimenta não for encontrada', async () => {
+    it('Teste 8: retornar um status 400 se a pimenta não for encontrada', async () => {
       const res = await request(app).delete('/chillies/999');
       expect(res.statusCode).toEqual(400);
     });
