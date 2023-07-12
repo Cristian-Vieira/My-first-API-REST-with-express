@@ -1,5 +1,5 @@
 const request = require('supertest');
-const app = require('./app'); // Supondo que o arquivo do código esteja em 'app.js'
+const app = require('./API'); 
 
 describe('Testes para os Endpoints da API', () => {
   let chilliId;
