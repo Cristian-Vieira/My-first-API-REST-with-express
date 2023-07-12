@@ -1,5 +1,5 @@
 # My first API REST with express
- Esta é uma API REST basica feita usando express no ambiente node.js, realizando operações como buscar, adicionar, atualizar e remover dados.
+ Esta é uma API REST básica feita usando Express no ambiente Node.js. Ela permite realizar operações de busca, adição, atualização e remoção de dados. Neste caso, a API foi desenvolvida para gerenciar uma lista de pimentas. Cada pimenta deve conter informações básicas, como nome, região de origem e teor de picância na escala de Scoville.
 
  Este projeto foi solicitado como laboratorio do curso [Building a RESTful API with Express](https://cognitiveclass.ai/courses/course-v1:IBM+GPXX0U2FEN+v1) da [Cognitiveclass.ai](https://cognitiveclass.ai/). Oferecido pela IBM.
 
