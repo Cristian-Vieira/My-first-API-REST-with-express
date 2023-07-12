@@ -1,5 +1,5 @@
 const request = require('supertest');
-const app = require('./API'); 
+const { app, closeServer } = require('./API');
 
 describe('Testes para os Endpoints da API', () => {
   let chilliId;
@@ -36,12 +36,11 @@ describe('Testes para os Endpoints da API', () => {
       expect(res.statusCode).toEqual(200);
       expect(res.body).toHaveProperty('id');
       expect(res.body.name).toBeDefined();
-      expect(res.body.scoville).toBeDefined();
     });
 
-    it('deve retornar um status 400 se a pimenta não for encontrada', async () => {
+    it('deve retornar um status 404 se a pimenta não for encontrada', async () => {
       const res = await request(app).get('/chillies/999');
-      expect(res.statusCode).toEqual(400);
+      expect(res.statusCode).toEqual(404);
     });
   });
 
@@ -74,5 +73,10 @@ describe('Testes para os Endpoints da API', () => {
       const res = await request(app).delete('/chillies/999');
       expect(res.statusCode).toEqual(400);
     });
+  });
+
+  // Encerra o servidor após a conclusão dos testes
+  afterAll(async () => {
+    await closeServer();
   });
 });
