@@ -3,16 +3,15 @@
     "version": "1.0.0",
     "description": "my first API REST with express",
     "scripts": {
-      "start": "node app.js",
-      "test": "jest"
+        "start": "node API.js",
+        "test": "jest"
     },
     "dependencies": {
-      "cors": "^2.8.5",
-      "express": "^4.17.1"
+        "cors": "^2.8.5",
+        "express": "^4.17.1"
     },
     "devDependencies": {
-      "jest": "^27.0.6",
-      "supertest": "^6.1.6"
+        "jest": "^27.0.6",
+        "supertest": "^6.1.6"
     }
-  }
-  
+}
